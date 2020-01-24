@@ -1,4 +1,4 @@
-#include "main.h"
+#include "matchmake.h"
 
 int nCr(int n, int r)
 {
