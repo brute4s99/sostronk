@@ -6,6 +6,6 @@ void combinationUtil(int arr[], int data[],
 					int index, int m);
 int fact(int n);
 void save_team(int i, int m);
-void printCombination(int arr[], int n, int m);
+void startCombination(int arr[], int n, int m);
 int **teams;
 int teamNumber = 0;
