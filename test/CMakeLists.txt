@@ -6,6 +6,10 @@ include_directories (
 
 set( TEST_LIBRARIES Matchmake Qt5::Test ${QT_QTTEST_LIBRARY} ${QT_LIBRARIES} )
 
-add_executable( bv_test boundary_value_test.cpp )
-target_link_libraries( bv_test ${TEST_LIBRARIES} )
-add_test( NAME BoundaryValueTest COMMAND bv_test )
+macro(add_a_test name cpp)
+add_executable( ${cpp} ${cpp}.cpp )
+target_link_libraries( ${cpp} ${TEST_LIBRARIES} )
+add_test( NAME ${name} COMMAND ${cpp} )
+endmacro()
+
+add_a_test(BoundaryValueTest boundary_value_test)
