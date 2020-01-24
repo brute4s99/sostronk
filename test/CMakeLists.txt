@@ -12,4 +12,4 @@ target_link_libraries( ${cpp} ${TEST_LIBRARIES} )
 add_test( NAME ${name} COMMAND ${cpp} )
 endmacro()
 
-add_a_test(BoundaryValueTest boundary_value_test)
+add_a_test(CombinationTest ncr_test)

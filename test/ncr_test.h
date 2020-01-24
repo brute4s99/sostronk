@@ -1,9 +1,10 @@
-#ifndef BOUNDARYTESTS_H
-#define BOUNDARYTESTS_H
+#ifndef NCRTEST_H
+#define NCRTEST_H
 
 #include <QTest>
+#include <core/matchmake.h>
 
-class BoundaryValueTest : public QObject
+class CombinationTest : public QObject
 {
     Q_OBJECT
 

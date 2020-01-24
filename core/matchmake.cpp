@@ -5,16 +5,19 @@ int teamNumber = 0;
 
 int nCr(int n, int r)
 {
+    if (n<r || n < 0 || r < 0) {
+        return 0;
+    }
     return fact(n) / (fact(r) * fact(n - r));
 }
 
 // Returns factorial of n
 int fact(int n)
 {
-    int res = 1;
-    for (int i = 2; i <= n; i++)
-        res = res * i;
-    return res;
+    if (n <= 1) {
+        return 1;
+    }
+    return fact(n-1) * n;
 }
 
 void saveTeam(int data[], int m) 
