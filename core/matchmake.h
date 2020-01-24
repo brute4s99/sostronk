@@ -1,6 +1,10 @@
 #ifndef MATCHMAKE_H
 #define MATCHMAKE_H
 
+
+extern int **teams;
+extern int teamNumber;
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -13,8 +17,5 @@ int fact(int n);
 
 void printTeams(int numberOfTeams, int m);
 void save_team(int i, int m);
-
-int **teams;
-int teamNumber = 0;
 
 #endif
