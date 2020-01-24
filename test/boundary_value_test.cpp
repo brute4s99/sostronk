@@ -1,4 +1,5 @@
 #include "boundary_value_test.h"
+#include <core/main.h>
 
 QTEST_GUILESS_MAIN(BoundaryValueTest);
 
@@ -9,7 +10,8 @@ void BoundaryValueTest::initTestCase()
 
 void BoundaryValueTest::TheTest()
 {
-    QCOMPARE( true & true, true );
+    QCOMPARE( false & true, true );
+
 }
 
 void BoundaryValueTest::cleanupTestCase()
