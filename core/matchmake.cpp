@@ -20,22 +20,6 @@ void calculateTotalScore(vector< MATCH> &matches)
         }
     }
 }
-int nCr (int n, int r)
-{
-    if (n<r || n < 0 || r < 0) {
-        return 0;
-    }
-    return fact(n) / (fact(r) * fact(n - r));
-}
-
-// Returns factorial of n
-int fact (int n)
-{
-    if (n <= 1) {
-        return 1;
-    }
-    return fact(n-1) * n;
-}
 
 void printTeam (TEAM const &team)
 {
@@ -69,6 +53,7 @@ void printMatches (vector< MATCH> &matches)
         printMatch(match);
     }
 }
+
 // The driver function
 void makeTeams (vector< PLAYER > const &players,
                 vector< TEAM > &teams,

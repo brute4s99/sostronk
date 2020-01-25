@@ -18,9 +18,6 @@ void makeTeamsUtil(	vector< PLAYER> const &players,
 					int start, int end,
 					int index, int m);
 
-int nCr(int n, int r);
-int fact(int n);
-
 void printTeam		(TEAM 					const 	&team);
 void printMatch		(MATCH 					const 	&match);
 void printMatches (vector< MATCH> &matches);
