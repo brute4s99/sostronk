@@ -28,13 +28,9 @@ int main()
     }
     int numberOfPlayers = players.size();
 
-    // sort(players.begin(),players.end(),comparator);
-    // printPlayers(players);
-
     vector< TEAM> teams;
     makeTeams(players, teams, m);
     int numberOfTeams = teams.size();
-    // printTeams(teams);
 
     vector< MATCH> matches;
     for (int i = 0; i < numberOfTeams-1; i++) {
@@ -47,5 +43,6 @@ int main()
             }
         }
     }
+
     printMatches(matches);
 }
