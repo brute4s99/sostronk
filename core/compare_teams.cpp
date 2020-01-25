@@ -1,8 +1,6 @@
-// A Simple C++ program to check if two sets are disjoint
-#include<iostream>
-#include<algorithm>
-using namespace std;
+// A Simple C++ program to check if two teams are disjoint
 
+#include "compare_teams.h"
 
 bool operator<(PLAYER const &player1, PLAYER const &player2)
 {
