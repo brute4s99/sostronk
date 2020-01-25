@@ -1,13 +1,5 @@
 #include "matchmake.h"
 
-bool compare_matches(MATCH &a, MATCH &b)
-{
-    int qualityA = -abs(a[0].second-a[1].second);
-    int qualityB = -abs(b[0].second-b[1].second);
-
-    return qualityA > qualityB;
-}
-
 void calculateTotalScore(vector< MATCH> &matches)
 {
     for (auto &match : matches) {
@@ -19,6 +11,14 @@ void calculateTotalScore(vector< MATCH> &matches)
             }
         }
     }
+}
+
+bool compareMatches(MATCH &a, MATCH &b)
+{
+    int qualityA = -abs(a[0].second-a[1].second);
+    int qualityB = -abs(b[0].second-b[1].second);
+
+    return qualityA > qualityB;
 }
 
 void printTeam (TEAM const &team)
@@ -48,15 +48,15 @@ void printMatch (MATCH const &match)
 void printMatches (vector< MATCH> &matches)
 {
     calculateTotalScore(matches);
-    sort(matches.begin(), matches.end(), compare_matches);
+    sort(matches.begin(), matches.end(), compareMatches);
     for (auto match : matches) {
         printMatch(match);
     }
 }
 
 // The driver function
-void makeTeams (vector< PLAYER > const &players,
-                vector< TEAM > &teams,
+void makeTeams (vector< PLAYER> const &players,
+                vector< TEAM> &teams,
                 int m)
 {
     TEAM team;
@@ -82,7 +82,7 @@ void makeTeamsUtil (vector< PLAYER> const &players,
 		makeTeamsUtil(players, teams, team, i+1,
 						end, index+1, m);
         team.erase(std::remove(team.begin(), team.end(), players[i]), team.end());
-        
+
 	}
 }
 

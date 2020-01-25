@@ -18,6 +18,9 @@ void makeTeamsUtil(	vector< PLAYER> const &players,
 					int start, int end,
 					int index, int m);
 
+void calculateTotalScore(vector< MATCH> &matches);
+bool compareMatches(MATCH &a, MATCH &b);
+
 void printTeam		(TEAM 					const 	&team);
 void printMatch		(MATCH 					const 	&match);
 void printMatches (vector< MATCH> &matches);
