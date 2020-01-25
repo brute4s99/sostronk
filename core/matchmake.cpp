@@ -21,6 +21,12 @@ bool compareMatches(MATCH &a, MATCH &b)
     return qualityA > qualityB;
 }
 
+
+bool comparePlayers(PLAYER p1, PLAYER p2)
+{
+    return p1.second > p2.second;
+}
+
 void printTeam (TEAM const &team)
 {
     for (int i = 0; i < team.size(); i++) {
@@ -86,3 +92,31 @@ void makeTeamsUtil (vector< PLAYER> const &players,
 	}
 }
 
+string convertToString(char* a)
+{
+    int i;
+    string s = "";
+    for (i = 0; a[i] != '\0'; i++) {
+        s = s + a[i];
+    }
+    return s;
+}
+
+int parseScore(string &str)
+{
+    int i = 1;
+    while(str[str.length()-i] != ' ') {
+        i++;
+    }
+    return stoi(str.substr(str.length()-i));
+
+}
+
+string parseName(string str)
+{
+    int i = 1;
+    while(str[str.length()-i] != ' ') {
+        i++;
+    }
+    return str.substr(0, str.length()-i);
+}
