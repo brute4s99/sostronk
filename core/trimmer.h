@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-using namespace std;
 
 const std::string WHITESPACE = " \n\r\t\f\v";
 
