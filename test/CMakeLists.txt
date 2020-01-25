@@ -7,6 +7,7 @@ include_directories (
 set( TEST_LIBRARIES
      Matchmake
      Trimmer
+     CompareTeams
      Qt5::Test
      ${QT_QTTEST_LIBRARY}
      ${QT_LIBRARIES}
@@ -19,5 +20,5 @@ add_test( NAME ${name} COMMAND ${cpp} )
 endmacro()
 
 add_a_test(TrimmerTest trimmer_test)
+add_a_test(CompareTeamsTest compare_teams_test)
 #add_a_test(MatchMakeTest matchmake_test)
-#add_a_test(CompareTeamsTest compare_teams_test)
