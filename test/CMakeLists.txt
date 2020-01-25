@@ -21,4 +21,4 @@ endmacro()
 
 add_a_test(TrimmerTest trimmer_test)
 add_a_test(CompareTeamsTest compare_teams_test)
-#add_a_test(MatchMakeTest matchmake_test)
+add_a_test(MatchMakeTest matchmake_test)
