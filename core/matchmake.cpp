@@ -1,7 +1,5 @@
 #include "matchmake.h"
 
-int **teams;
-int teamNumber = 0;
 
 int nCr(int n, int r)
 {
@@ -20,48 +18,55 @@ int fact(int n)
     return fact(n-1) * n;
 }
 
-void saveTeam(int data[], int m) 
+
+void printPlayers(vector<pair <string, int>> const &players)
 {
-    for (int i = 0; i < m; i++) {
-        teams[teamNumber][i] = data[i];
+    for (int i=0;i<players.size();i++){
+        cout<< "Player Name: " << players[i].first << " | " << "Score: " << players[i].second << '\n';
     }
-    teamNumber++;
+
 }
 
-void printTeams(int numberOfTeams, int m)
+void printTeams(vector <set <pair <string, int> > > const &teams)
 {
-    for (int i = 0; i < numberOfTeams; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << teams[i][j] << ' ';
+    for (auto team : teams) {
+        cout << "New Team\n";
+        for (auto player : team)
+        {
+            cout << "Player Name: " << player.first << " | " << "Score: " << player.second << '\n';
         }
         cout << '\n';
     }
 }
 
 // The driver function
-void startCombination(int arr[], int n, int m)
+void makeTeams(vector<pair <string, int>> const &players,
+                    vector <set <pair <string, int> > > &teams,
+                    int m)
 {
-	int data[m];
-
-	combinationUtil(arr, data, 0, n-1, 0, m);
+    set <pair <string, int> > team;
+	makeTeamsUtil(players, teams, team, 0, players.size()-1, 0, m);
 }
 
 
-void combinationUtil(int arr[], int data[],
+void makeTeamsUtil(vector<pair <string, int>>const &players,
+                    vector <set <pair <string, int> > > &teams,
+                    set <pair <string, int> > &team,
 					int start, int end,
 					int index, int m)
 {
 	if (index == m)
 	{
-        saveTeam(data, m);
+        teams.push_back(team);
 	}
 
 	for (int i = start; i <= end &&
 		end - i + 1 >= m - index; i++)
 	{
-		data[index] = arr[i];
-		combinationUtil(arr, data, i+1,
+		team.insert(players[i]);
+		makeTeamsUtil(players, teams, team, i+1,
 						end, index+1, m);
+        team.erase(players[i]);
 	}
 }
 

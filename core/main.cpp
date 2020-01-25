@@ -35,47 +35,37 @@ string parseName(string str)
 
 bool comparator(pair <string, int> a, pair <string, int> b)
 {
-    return a.second < b.second;
+    return a.second > b.second;
 }
 int main()
 {
     // collect inputs
-    // int m;
-    // cin >> m;
-    // vector<pair <string, int>> players;
-    // string str;
-    // cin.ignore();
-    // while (getline(cin, str))
-    // {
-    //     if (str.empty()) {
-    //         break;
-    //     }
-    //     str = trim(str);
+    int m;
+    cin >> m;
+    vector<pair <string, int>> players;
+    string str;
+    cin.ignore();
+    while (getline(cin, str))
+    {
+        if (str.empty()) {
+            break;
+        }
+        str = trim(str);
 
-    //     // parse input
-    //     int score = parseScore(str);
-    //     string name = trim(parseName(str));
-    //     pair <string, int> temp(name, score);
-    //     players.push_back(temp);
-    // }
+        // parse input
+        int score = parseScore(str);
+        string name = trim(parseName(str));
+        pair <string, int> temp(name, score);
+        players.push_back(temp);
+    }
+    int numberOfPlayers = players.size();
 
     // sort(players.begin(),players.end(),comparator);
+    // printPlayers(players);
 
-    // for (int i=0;i<players.size();i++){
-    //     cout<< "Player Name: " << players[i].first << " | " << "Score: " << players[i].second << '\n';
-    // }
-    int n = players.size();
-
-	int arr[] = {1, 2, 3, 4};
-
-	int n = sizeof(arr)/sizeof(arr[0]);
-
-    int numberOfTeams = nCr(n,m);
-    teams = new int*[numberOfTeams];
-    for(int i = 0; i < numberOfTeams; i++){
-        teams[i] = new int[m];
-    }
-
-	startCombination(arr, n, m);
-    printTeams(numberOfTeams, m);
+    vector <set <pair <string, int> > > teams;
+    // int numberOfTeams = nCr(n,m);
+    // teams.resize(numberOfTeams);
+	makeTeams(players, teams, m);
+    // printTeams(teams);    
 }
