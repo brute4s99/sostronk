@@ -26,13 +26,13 @@ make -j8 install
 
 ## How to test
 
-1. To build the project use: -
+1. To configure & build use: -
 ```
 cmake -DCMAKE_INSTALL_PREFIX=~/brute4s99 ..
- 
 make
 ```
-2. To run the tests use: -
+
+2. To run tests use: -
 ```
 make tests
 ```
@@ -41,6 +41,7 @@ make tests
 
 - You can find the binary for my solution installed in `matchmake` in `~/brute4s99/bin/` after performing the build instructions.
 
+Feel free to change `-DCMAKE_INSTALL_PREFIX=~/brute4s99` to any other path to install the project elsewhere.
 
 ## License
 
