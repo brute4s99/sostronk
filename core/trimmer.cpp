@@ -1,8 +1,5 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include "trimmer.h"
 
-const std::string WHITESPACE = " \n\r\t\f\v";
 
 std::string ltrim(const std::string& s)
 {
