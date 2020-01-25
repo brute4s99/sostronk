@@ -1,5 +1,6 @@
 #include "matchmake.h"
 #include "trimmer.cpp"
+#include "compare_teams.cpp"
 #include<bits/stdc++.h>
 #include<string>
 using namespace std;
@@ -42,7 +43,7 @@ int main()
     // collect inputs
     int m;
     cin >> m;
-    vector<pair< string, int> > players;
+    vector< PLAYER> players;
     string str;
     cin.ignore();
     while (getline(cin, str))
@@ -55,7 +56,7 @@ int main()
         // parse input
         int score = parseScore(str);
         string name = trim(parseName(str));
-        pair< string, int> temp(name, score);
+        PLAYER temp(name, score);
         players.push_back(temp);
     }
     int numberOfPlayers = players.size();
@@ -63,9 +64,21 @@ int main()
     // sort(players.begin(),players.end(),comparator);
     // printPlayers(players);
 
-    vector< set< pair< string, int> > > teams;
-    // int numberOfTeams = nCr(n,m);
-    // teams.resize(numberOfTeams);
-	makeTeams(players, teams, m);
+    vector< TEAM> teams;
+    makeTeams(players, teams, m);
+    int numberOfTeams = teams.size();
     // printTeams(teams);
+
+    vector< MATCH> matches;
+    for (int i = 0; i < numberOfTeams-1; i++) {
+        for (int j = i+1; j < numberOfTeams; j++) {
+            if(areDisjoint(teams[i], teams[j])) {
+                MATCH match;
+                match[0].first = teams[i];
+                match[1].first = teams[j];
+                matches.push_back(match);
+            }
+        }
+    }
+    printMatches(matches);
 }
