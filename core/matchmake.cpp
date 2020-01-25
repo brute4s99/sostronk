@@ -19,39 +19,35 @@ int fact(int n)
 }
 
 
-void printPlayers(vector<pair <string, int>> const &players)
+void printPlayers(set< pair< string, int> > const &team)
 {
-    for (int i=0;i<players.size();i++){
-        cout<< "Player Name: " << players[i].first << " | " << "Score: " << players[i].second << '\n';
+    for (auto player : team){
+        cout<< "Player Name: " << player.first << " | " << "Score: " << player.second << '\n';
     }
-
 }
 
-void printTeams(vector <set <pair <string, int> > > const &teams)
+void printTeams(vector< set< pair< string, int> > > const &teams)
 {
     for (auto team : teams) {
         cout << "New Team\n";
-        for (auto player : team)
-        {
-            cout << "Player Name: " << player.first << " | " << "Score: " << player.second << '\n';
-        }
+        printPlayers(team);
         cout << '\n';
     }
 }
 
 // The driver function
-void makeTeams(vector<pair <string, int>> const &players,
-                    vector <set <pair <string, int> > > &teams,
+void makeTeams(vector< pair< string, int>> const &players,
+                    vector< set< pair< string, int> > > &teams,
                     int m)
 {
-    set <pair <string, int> > team;
+    set< pair< string, int> > team;
 	makeTeamsUtil(players, teams, team, 0, players.size()-1, 0, m);
 }
 
 
-void makeTeamsUtil(vector<pair <string, int>>const &players,
-                    vector <set <pair <string, int> > > &teams,
-                    set <pair <string, int> > &team,
+void makeTeamsUtil(vector< pair< string, int>>const &players,
+                    vector< set< pair< string, int> > > &teams,
+                    set< pair< string, int> > &team,
 					int start, int end,
 					int index, int m)
 {

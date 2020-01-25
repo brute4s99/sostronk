@@ -33,7 +33,7 @@ string parseName(string str)
     return str.substr(0, str.length()-i);
 }
 
-bool comparator(pair <string, int> a, pair <string, int> b)
+bool comparator(pair< string, int> a, pair< string, int> b)
 {
     return a.second > b.second;
 }
@@ -42,7 +42,7 @@ int main()
     // collect inputs
     int m;
     cin >> m;
-    vector<pair <string, int>> players;
+    vector<pair< string, int> > players;
     string str;
     cin.ignore();
     while (getline(cin, str))
@@ -55,7 +55,7 @@ int main()
         // parse input
         int score = parseScore(str);
         string name = trim(parseName(str));
-        pair <string, int> temp(name, score);
+        pair< string, int> temp(name, score);
         players.push_back(temp);
     }
     int numberOfPlayers = players.size();
@@ -63,9 +63,9 @@ int main()
     // sort(players.begin(),players.end(),comparator);
     // printPlayers(players);
 
-    vector <set <pair <string, int> > > teams;
+    vector< set< pair< string, int> > > teams;
     // int numberOfTeams = nCr(n,m);
     // teams.resize(numberOfTeams);
 	makeTeams(players, teams, m);
-    // printTeams(teams);    
+    // printTeams(teams);
 }
