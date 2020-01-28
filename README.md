@@ -13,22 +13,22 @@ The solution is set up as a CMake project.
 1. To configure use: -
 ```
 cd solution
-mkdir build
+mkdir
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/brute4s99 ..
+cmake ..
 ```
 (please do note the two dots in the end of the last command ^)
 
 2. To build use: -
 ```
-make -j8 install
+make -j8
 ```
 
 ## How to test
 
 1. To configure & build use: -
 ```
-cmake -DCMAKE_INSTALL_PREFIX=~/brute4s99 ..
+cmake ..
 make
 ```
 
@@ -39,9 +39,7 @@ make tests
 
 ## How to use
 
-- You can find the binary for my solution installed in `matchmake` in `~/brute4s99/bin/` after performing the build instructions.
-
-Feel free to change `-DCMAKE_INSTALL_PREFIX=~/brute4s99` to any other path to install the project elsewhere.
+- You can find the binary for my solution with the file name `matchmake` in `build/src/` after performing the build instructions.
 
 ## License
 
