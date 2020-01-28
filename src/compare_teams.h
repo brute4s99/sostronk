@@ -1,8 +1,6 @@
 #ifndef COMPARE_TEAMS_H
 #define COMPARE_TEAMS_H
 
-#include<iostream>
-#include<algorithm>
 #include "matchmake.h"
 
 bool operator<(PLAYER const &player1, PLAYER const &player2);

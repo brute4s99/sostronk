@@ -1,6 +1,5 @@
 #include "trimmer_test.h"
 #include <QtDebug>
-#include <string>
 
 void TrimmerTest::initTestCase()
 {

@@ -1,9 +1,7 @@
 #ifndef TRIMMER_H
 #define TRIMMER_H
 
-#include <iostream>
 #include <string>
-#include <algorithm>
 
 const std::string WHITESPACE = " \n\r\t\f\v";
 

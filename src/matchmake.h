@@ -1,7 +1,12 @@
 #ifndef MATCHMAKE_H
 #define MATCHMAKE_H
 
-#include<bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <utility> // for pair
+#include <array>
+#include <iostream>
+#include <algorithm> // for sort function
 using namespace std;
 
 typedef pair< string, int>			PLAYER;

@@ -1,9 +1,6 @@
 #include "matchmake.h"
 #include "trimmer.h"
 #include "compare_teams.h"
-#include<bits/stdc++.h>
-#include<string>
-using namespace std;
 
 int main()
 {
