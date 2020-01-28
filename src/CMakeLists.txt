@@ -8,4 +8,4 @@ add_executable (matchmake main.cpp)
 
 target_link_libraries (matchmake Matchmake Trimmer CompareTeams)
 
-install(TARGETS matchmake DESTINATION ${LIBEXEC_INSTALL_DIR})
+install(TARGETS matchmake RUNTIME DESTINATION bin DESTINATION ${LIBEXEC_INSTALL_DIR})
