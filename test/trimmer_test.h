@@ -2,7 +2,7 @@
 #define TRIMMERTEST_H
 
 #include <QTest>
-#include <core/trimmer.h>
+#include <src/trimmer.h>
 
 class TrimmerTest : public QObject
 {

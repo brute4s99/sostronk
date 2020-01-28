@@ -2,7 +2,7 @@
 #define MATCHMAKE_TEST_H
 
 #include <QTest>
-#include <core/matchmake.h>
+#include <src/matchmake.h>
 
 class MatchmakeTest : public QObject
 {

@@ -2,7 +2,7 @@
 #define COMPARE_TEAMS_TEST_H
 
 #include <QTest>
-#include <core/compare_teams.h>
+#include <src/compare_teams.h>
 
 class CompareTeamsTest : public QObject
 {

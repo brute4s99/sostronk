@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.0)
 
 project (matchmaking)
 
-add_subdirectory (core)
+add_subdirectory (src)
 
 set(CMAKE_AUTOMOC ON)
 
