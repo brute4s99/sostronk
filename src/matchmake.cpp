@@ -43,7 +43,7 @@ void printMatch (MATCH const &match)
         printTeam(match[i].first);
         int size = (match[i].first).size();
         cout << " (" << float(match[i].second)/size << ')';
-        if(i != size-1) {
+        if(i == 0) {
             cout << " vs ";
         } else {
             cout <<'\n';
@@ -60,63 +60,41 @@ void printMatches (vector< MATCH> &matches)
     }
 }
 
-// The driver function
-void makeTeams (vector< PLAYER> const &players,
-                vector< TEAM> &teams,
+void makeTeams(	vector< TEAM> const &teams,
+                vector< TEAM> &finalTeams,
                 int m)
 {
     TEAM team;
-	makeTeamsUtil(players, teams, team, 0, players.size()-1, 0, m);
+	makeTeamsUtil(teams, finalTeams, team, 0, teams.size()-1, 0, m);
 }
 
 
-void makeTeamsUtil (vector< PLAYER> const &players,
-                    vector< TEAM> &teams,
+void makeTeamsUtil (vector< TEAM> const &teams,
+                    vector< TEAM> &finalTeams,
                     TEAM &team,
 					int start, int end,
 					int index, int m)
 {
-	if (index == m)
-	{
-        teams.push_back(team);
-	}
+	if (index == m) {
+        finalTeams.push_back(team);
+	} else if (index > m) {
+        return;
+    }
 
 	for (int i = start; i <= end &&
-		end - i + 1 >= m - index; i++)
-	{
-		team.push_back(players[i]);
-		makeTeamsUtil(players, teams, team, i+1,
-						end, index+1, m);
-        team.erase(std::remove(team.begin(), team.end(), players[i]), team.end());
-
+		end - i + 1 >= m - index; i++) {
+		for (auto player : teams[i]) {
+            team.push_back(player);
+        }
+		makeTeamsUtil(teams, finalTeams, team, i+1,
+						end, index+(teams[i].size()), m);
+        for (auto player : teams[i]) {
+            team.erase(std::remove(team.begin(), team.end(), player), team.end());
+        }
 	}
-}
-
-string convertToString(char* a)
-{
-    int i;
-    string s = "";
-    for (i = 0; a[i] != '\0'; i++) {
-        s = s + a[i];
-    }
-    return s;
 }
 
 int parseScore(string &str)
 {
-    int i = 1;
-    while(str[str.length()-i] != ' ') {
-        i++;
-    }
-    return stoi(str.substr(str.length()-i));
-
-}
-
-string parseName(string str)
-{
-    int i = 1;
-    while(str[str.length()-i] != ' ') {
-        i++;
-    }
-    return str.substr(0, str.length()-i);
+    return stoi(str);
 }

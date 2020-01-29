@@ -14,11 +14,12 @@ typedef vector< PLAYER>     		TEAM;
 typedef array< pair< TEAM, int>, 2>	MATCH;
 // The two pairs of MATCH contain one TEAM and an integer (each) to store the total score of the team.
 
-void makeTeams(	vector< PLAYER > const &players,
-                vector< TEAM > &teams,
+void makeTeams(	vector< TEAM> const &teams,
+                vector< TEAM> &finalTeams,
                 int m);
-void makeTeamsUtil(	vector< PLAYER> const &players,
-                    vector< TEAM> &teams,
+
+void makeTeamsUtil(	vector< TEAM> const &teams,
+                    vector< TEAM> &finalTeams,
                     TEAM &team,
 					int start, int end,
 					int index, int m);
